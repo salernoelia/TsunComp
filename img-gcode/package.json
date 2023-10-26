@@ -1,0 +1,49 @@
+{
+  "name": "img2gcode",
+  "version": "1.2.0",
+  "description": "convert jpg, png, gif to gcode with nodejs and jimp.",
+  "main": "./src/index.js",
+  "typess": "./src/img2gcode.d.ts",
+  "scripts": {
+    "build": "tsc --project ./src",
+    "start": "npm run build; npm runtest",
+    "test": "node ./tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaraniMatias/img2gcode.git"
+  },
+  "author": "Marani Matias Ezequiel",
+  "email": "maranimatias@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "img2gcode": "^1.2.0",
+    "jimp": "^0.16.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@jimp/types": "^0.16.1",
+    "@types/node": "^14.14.1",
+    "progress": "^2.0.3",
+    "typescript": "^4.0.3"
+  },
+  "keywords": [
+    "img",
+    "png",
+    "jpeg",
+    "gcode",
+    "img2gcode",
+    "imgtogcode",
+    "img to gcode",
+    "png2gcode",
+    "png to gcode",
+    "jpeg2gcode",
+    "jpeg to gcode",
+    "image to gcode",
+    "image to cnc"
+  ],
+  "engines": {
+    "node": ">=10.15.3"
+  }
+}

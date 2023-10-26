@@ -1,0 +1,10 @@
+.vscode/
+.git/
+typings/
+*.map
+*.png
+*.jpeg
+*.gif
+*.gcode
+/test/**/*
+*.ts
