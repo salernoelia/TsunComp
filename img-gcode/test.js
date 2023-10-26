@@ -1,6 +1,10 @@
 /*eslint no-console: "warn"*/
 const path = require("path");
+
+//library is saved locally in ../src
 var img2gcode = require("img2gcode");
+
+//progress bar in terminal 
 const ProgressBar = require("progress");
 var bar = new ProgressBar("Analyze: [:bar] :percent :etas", {
   complete: "#",
@@ -14,13 +18,14 @@ const imgFile = "/tests/img-and-gcode/woman.jpeg";
 
 
 const options = {
-  // It is mm
-  toolDiameter: 1.45, //Playing with this value gives most interesting results (abstraction/complexity)
+  toolDiameter: 1.45, //(in mm) Playing with this value gives most interesting results (abstraction/complexity)
   sensitivity: 0.5, // intensity sensitivity (Eyeballing this shit)
   // scaleAxes: 400, // default: image.height equal mm
-  feedrate: { work: 1200, idle: 3000 }, // Only the corresponding line is added.
-  deepStep: -1, // default: -1
+  feedrate: { work: 1200, idle: 3000 }, // Don't touch this
+  deepStep: -1, // default: -1 (Would not touch this)
   // invest: {x:true, y: false},
+
+
   laser: {
     commandPowerOn: "M04",
     commandPowerOff: "M05"
@@ -56,12 +61,3 @@ console.time("img2gcode");
 imgToGCode(options).then(() => {
   console.timeEnd("img2gcode");
 });
-
-// console.time("img2gcode");
-// options.dirImg = path.normalize(__dirname + "/img-and-gcode/test.jpeg");
-// imgToGCode(options).then(() => {
-//   options.dirImg = path.normalize(__dirname + "/img-and-gcode/test.png");
-//   imgToGCode(options).then(() => {
-//     console.timeEnd("img2gcode");
-//   });
-// });
