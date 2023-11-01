@@ -1,22 +1,19 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import time
-import os
 import shutil
-
-# Set the path to ChromeDriver
-# Get the current working directory
-current_directory = os.getcwd()
-
-# Define the relative path to chromedriver.exe
-chromedriver_path = os.path.join(current_directory, 'chromedriver.exe')
+import os
 
 # Define the relative paths for image and SVG files
-image_folder = os.path.join(current_directory, 'png')
-svg_folder = os.path.join(current_directory, 'svg')
+image_folder = 'png'
+svg_folder = 'svg'
+
+# Get the absolute path of the current working directory
+current_directory = os.getcwd()
+
+# Create the absolute path for the image file to upload
+file_to_upload = os.path.abspath(os.path.join(current_directory, image_folder, os.listdir(image_folder)[0]))
 
 # Initialize the Chrome webdriver
 driver = webdriver.Chrome()
@@ -25,11 +22,8 @@ driver = webdriver.Chrome()
 driver.get('https://online.rapidresizer.com/tracer.php')
 
 try:
-    wait = WebDriverWait(driver, 10)
-
     # Click "Upload a file to trace" button
     upload_button = driver.find_element(By.NAME, 'traceFile')
-    file_to_upload = os.path.join(image_folder, os.listdir(image_folder)[0])
     upload_button.send_keys(file_to_upload)
     time.sleep(4)
 
@@ -63,7 +57,7 @@ try:
 
     # Move the downloaded SVG to the desired folder
     shutil.move(downloaded_file, destination_path)
-    
+
     time.sleep(3)
     print(f"Downloaded SVG: {destination_path}")
 
