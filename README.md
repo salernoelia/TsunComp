@@ -1,5 +1,5 @@
 # TsunComp — Physical Computing Project
-Group: Stepan Vedunov, Elia Salerno, David Polke, Andreas Kohler
+Contributors: Stepan Vedunov, Elia Salerno, David Polke, Andreas Kohler
 
 # Export SVG to Gcode
 ```bash
